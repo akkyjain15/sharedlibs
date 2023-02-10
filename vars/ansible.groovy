@@ -8,6 +8,7 @@ def clone(){
 }
 
 def approval(){
+ def p = readPropertyFile()
  if ("${p.KEEP_APPROVAL_STAGE}" == "true") {
    input 'Want to execute playbook?'
  } 
