@@ -1,5 +1,5 @@
 def clone(url){
- git branch: 'main', url: '$url'
+ git branch: 'main', url: $url
 }
 
 def PlaybookExecution(){
