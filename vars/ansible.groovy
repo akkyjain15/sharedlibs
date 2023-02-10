@@ -17,7 +17,7 @@ def slackSend(String buildResult) {
   if ( buildResult == "SUCCESS" ) {
     slackSend channel: "${p.SLACK_CHANNEL_NAME}",
     color: 'good',
-    message: " *${currentBuild.currentResult}:* \n *Job_Name:* '${JOB_NAME}' \n *USER:* '${USER}' \n *Stage_Name:* ${STAGE_NAME} \n *Build_Number:* '${BUILD_NUMBER}' \n *More info at:* '${BUILD_URL}'",
+    message: "${p.ACTION_MESSAGE}",
     teamDomain: 'ninja-gjj9738', tokenCredentialId: 'slack'         
   }
   else if( buildResult == "FAILURE" ) { 
