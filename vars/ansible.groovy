@@ -1,5 +1,5 @@
-def clone(){
- git branch: 'main', url: 'https://gitlab.com/Akshay15jain/ansible.git'
+def clone(url){
+ git branch: 'main', url: '$url'
 }
 
 def PlaybookExecution(){
