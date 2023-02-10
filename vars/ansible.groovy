@@ -1,5 +1,5 @@
 def clone(path){
- git branch: 'main', url: '${path}'
+ git branch: 'main', url: 'https://gitlab.com/Akshay15jain/ansible.git'
  
 }
 
