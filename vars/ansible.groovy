@@ -1,3 +1,7 @@
+def readPropertyFile(Map stepParams) {
+ config = readProperties file: "${configFilePath}"
+}
+
 def clone(path){
  git branch: 'main', url: 'https://gitlab.com/Akshay15jain/ansible.git'
  
