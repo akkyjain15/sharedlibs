@@ -13,7 +13,7 @@ def PlaybookExecution(){
 }
 
 def slackSend(String buildResult) {
- def props = readProperties  file:'sharedlibs/vars/configFilePath'
+ def props = readProperties  file:'configFilePath'
   if ( buildResult == "SUCCESS" ) {
    slackSend channel: '${props.SLACK_CHANNEL_NAME}',
     color: 'good',
