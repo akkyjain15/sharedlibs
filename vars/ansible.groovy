@@ -21,7 +21,7 @@ def slackSend(String buildResult) {
  def p = readPropertyFile()
   if ( buildResult == "SUCCESS" ) {
    echo "${p.SLACK_CHANNEL_NAME}"
-    slackSend channel: '${p.SLACK_CHANNEL_NAME}',
+    slackSend channel: echo "${p.SLACK_CHANNEL_NAME}",
     color: 'good',
     message: " *${currentBuild.currentResult}:* \n *Job_Name:* '${JOB_NAME}' \n *USER:* '${USER}' \n *Stage_Name:* ${STAGE_NAME} \n *Build_Number:* '${BUILD_NUMBER}' \n *More info at:* '${BUILD_URL}'",
     teamDomain: 'ninja-gjj9738', tokenCredentialId: 'slack'         
