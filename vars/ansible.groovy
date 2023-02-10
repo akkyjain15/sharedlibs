@@ -6,7 +6,7 @@ def PlaybookExecution(){
  ansiblePlaybook credentialsId: 'assignment6-ssh', disableHostKeyChecking: true, installation: 'ansible1', inventory: 'inv', playbook: 'role_jenkins.yml'
 }
 
-def call(String buildResult) {
+def slackSend(String buildResult) {
   if ( buildResult == "SUCCESS" ) {
     slackSend channel: '#jenkinscicd',
     color: 'good',
