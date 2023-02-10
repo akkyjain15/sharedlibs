@@ -2,7 +2,7 @@
 def readPropertyFile() {
 // config = readProperties file: "${sharedlibs/vars/configFilePath}"
 // return config
-readProp = readProperties file: 'configFilePath'
+readProp = readProperties file: '${WORKSPACE}/configFilePath'
 return readProp 
 }
 
