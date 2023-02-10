@@ -8,9 +8,7 @@ def clone(){
 }
 
 def approval(){
-   input {
-              message 'Want to execute playbook?'
-       }
+   input 'Want to execute playbook?'
 }
 
 def PlaybookExecution(){
