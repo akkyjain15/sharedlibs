@@ -1,5 +1,5 @@
-def clone(name){
- git branch: 'main', url: '$name'
+def clone(userName,repositoryName){
+ git branch: 'main', url: 'https://gitlab.com/$userName/$repositoryName'
  
 }
 
