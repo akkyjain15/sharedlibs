@@ -1,5 +1,5 @@
 def readPropertyFile(Map stepParams) {
- config = readProperties file: "${configFilePath}"
+ config = readProperties file: "${sharedlibs/vars/configFilePath}"
  return config
 }
 
