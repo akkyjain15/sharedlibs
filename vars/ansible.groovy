@@ -1,12 +1,7 @@
-//def readPropertyFile(Map stepParams) {
 def readPropertyFile() {
-// config = readProperties file: "${sharedlibs/vars/configFilePath}"
-// return config
 readProp = readProperties file: 'configFilePath'
 return readProp 
 }
-
-
 
 def clone(){
  git branch: 'main', url: 'https://gitlab.com/Akshay15jain/ansible.git'
@@ -20,26 +15,25 @@ def PlaybookExecution(){
 def slackSend(String buildResult) {
  def p = readPropertyFile()
   if ( buildResult == "SUCCESS" ) {
-   echo "${p.SLACK_CHANNEL_NAME}"
     slackSend channel: "${p.SLACK_CHANNEL_NAME}",
     color: 'good',
     message: " *${currentBuild.currentResult}:* \n *Job_Name:* '${JOB_NAME}' \n *USER:* '${USER}' \n *Stage_Name:* ${STAGE_NAME} \n *Build_Number:* '${BUILD_NUMBER}' \n *More info at:* '${BUILD_URL}'",
     teamDomain: 'ninja-gjj9738', tokenCredentialId: 'slack'         
   }
   else if( buildResult == "FAILURE" ) { 
-    slackSend channel: '#jenkinscicd',
+    slackSend channel: "${p.SLACK_CHANNEL_NAME}",
     color: 'danger',
     message: " *${currentBuild.currentResult}:* \n *Job_Name:* '${JOB_NAME}' \n *USER:* '${USER}' \n *Stage_Name:* ${STAGE_NAME} \n *Build_Number:* '${BUILD_NUMBER}' \n *More info at:* '${BUILD_URL}'",
     teamDomain: 'ninja-gjj9738', tokenCredentialId: 'slack'      
   }
   else if( buildResult == "UNSTABLE" ) { 
-    slackSend channel: '#jenkinscicd',
+    slackSend channel: "${p.SLACK_CHANNEL_NAME}",
     color: 'warining',
     message: " *${currentBuild.currentResult}:* \n *Job_Name:* '${JOB_NAME}' \n *USER:* '${USER}' \n *Stage_Name:* ${STAGE_NAME} \n *Build_Number:* '${BUILD_NUMBER}' \n *More info at:* '${BUILD_URL}'",
     teamDomain: 'ninja-gjj9738', tokenCredentialId: 'slack'      
   }
   else {
-    slackSend channel: '#jenkinscicd',
+    slackSend channel: "${p.SLACK_CHANNEL_NAME}",
     color: 'danger',
     message: " *${currentBuild.currentResult}:* \n *Job_Name:* '${JOB_NAME}' \n *USER:* '${USER}' \n *Stage_Name:* ${STAGE_NAME} \n *Build_Number:* '${BUILD_NUMBER}' \n *More info at:* '${BUILD_URL}'",
     teamDomain: 'ninja-gjj9738', tokenCredentialId: 'slack'      
