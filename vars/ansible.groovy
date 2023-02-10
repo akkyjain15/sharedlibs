@@ -2,12 +2,6 @@ def clone(){
  git branch: 'main', url: 'https://gitlab.com/Akshay15jain/ansible.git'
 }
 
-def input(){
-  input {
-              message 'Want to execute playbook?'
-       }
-}
-
 def PlaybookExecution(){
  ansiblePlaybook credentialsId: 'assignment6-ssh', disableHostKeyChecking: true, installation: 'ansible1', inventory: 'inv', playbook: 'role_jenkins.yml'
 }
