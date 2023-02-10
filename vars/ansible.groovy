@@ -1,5 +1,6 @@
 def readPropertyFile(Map stepParams) {
  config = readProperties file: "${configFilePath}"
+ return config
 }
 
 def clone(path){
