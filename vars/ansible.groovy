@@ -3,7 +3,7 @@ def readPropertyFile(Map stepParams) {
  return config
 }
 
-def clone(path){
+def clone(){
  git branch: 'main', url: 'https://gitlab.com/Akshay15jain/ansible.git'
  
 }
