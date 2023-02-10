@@ -1,5 +1,5 @@
 def readPropertyFile() {
-readProp = readProperties file: 'configFilePath'
+readProp = readProperties file: 'sharedlibs/vars/configFilePath'
 return readProp 
 }
 
